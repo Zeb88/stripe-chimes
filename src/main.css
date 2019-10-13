@@ -1,0 +1,64 @@
+body center h1 {
+    font-size: 20px;
+    color: #3086ff;
+     }
+
+    h3 form h1 {
+    font-size: 25px;
+     }
+
+     p{
+         font-size: 18px;
+         font-weight: normal;
+         color: grey;
+     }
+
+
+     body {
+         font-family: 'Lucida Grand', Helvetica, Arial, sans-serif;
+     }
+     #charges {
+         margin: 20px;
+     }
+     .train-ride {
+         margin: 5px;
+     }
+     .play-anything {
+         margin: 5px;
+     }
+     .failed-charge {
+         color: darkRed;
+         margin: 5px;
+     }
+     .successful-charge {
+         color: darkGreen;
+         margin: 5px;
+     }
+     a {
+         display:inline-block;
+         margin:5px;
+         text-decoration: none;
+         color:#333333;
+     }
+     a:hover {
+         text-decoration: underline;
+         color:black;
+     }
+     input {
+         border : solid 2px #DDDDDD;
+         border-radius : 3px;
+         moz-border-radius : 3px;
+         font-size : 20px;
+         color : #333333;
+         padding : 5px 10px;
+         background : whiteSmoke;
+     }
+     input[type=text] {
+         width: 320px;
+     }
+
+     #main {
+    text-align: center;
+    color: #202c3c;
+    font-size : 40px;
+    }

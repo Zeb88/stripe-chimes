@@ -1,0 +1,129 @@
+<html>
+
+<head>
+    <title>Ccaasshh</title>
+    <meta name="robots" content="noindex">
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+    <script src="responsivevoice.js"></script>
+    <script src="https://code.jquery.com/jquery-git.js"></script>
+<script type="text/javascript src="/src/main.js"></script>
+<link rel="stylesheet" type="text/css" href="/src/main.css">
+</head>
+
+<body>
+    <center>
+      <br>
+      <h1 id= main> Stripe Chime  </h1>
+      <h3> Webhook based chime for stripe<h3>
+        <p>This listens for charge.succeeded webhooks from Stripe, <br/> and then prints a 
+            message (and plays a sound) in any browser <br/> connected to the server.
+            </p>
+        <br>
+        
+        <form method="get" action="/any-url">
+            <h1>
+                Play:
+                <input type="text" name="url" placeholder="http://url-to/sound.mp3">
+                <input type="submit" value="Play">
+            </h1>
+        </form>
+        <form method="get" action="/speak">
+            <h1>
+            Speak:
+
+                <input type="text" name="text" placeholder="Hello World">
+                <br>
+                <select id="voiceselection" name="voice"></select>
+                <input type="submit" value="Say">
+
+                <script>
+                    //Populate voice selection dropdown
+                    var voicelist = responsiveVoice.getVoices();
+                    var vselect = $("#voiceselection");
+                    $.each(voicelist, function() {
+                            vselect.append($("<option />").val(this.name).text(this.name));
+                    });
+                </script>
+            </h1>
+        </form>
+        <a href="/any-url?url=%2Faudio%2Fcash_register.mp3">Play Cha Ching</a><br>
+        <a href="/any-url?url=%2Faudio%2Fmoney.mp3">Play Money Money</a><br>
+        <a href="/any-url?url=%2Faudio%2Fdenied.mp3">Play Denied</a><br>
+        <a href="/any-url?url=%2Faudio%2Ftrain_whistle.mp3">Play Choo Choo</a><br>
+        <a href="/any-url?url=%2Faudio%2Fcrash.mp3">Play Crash</a><br>
+        <a href="/any-url?url=%2Faudio%2Ften_safe.mp3">Play Ten</a><br>
+        <a href="/any-url?url=%2Faudio%2Flive_chat.mp3">Play Live Chat</a><br>
+        <br>
+        <a href="/refresh">Refresh All Receivers</a><br><br>
+        <a href="/volume?text=0.5">Volume</a>
+
+        <h1>Choo Choo: <audio id="choochoo" preload="auto" controls="yes">
+          <source src="audio/train_whistle.mp3" type="audio/mpeg">
+        </audio></h1>
+        <h1>Crash: <audio id="crashed" preload="auto" controls="yes">
+          <source src="audio/crash.wav" type="audio/wave">
+          <source src="audio/crash.mp3" type="audio/mpeg">
+        </audio></h1>
+        <h1>Siren: <audio id="siren" preload="auto" controls="yes">
+          <source src="audio/siren.wav" type="audio/wave">
+          <source src="audio/siren.mp3" type="audio/mpeg">
+        </audio></h1>
+        <h1>Cha-ching: <audio id="cash_register" preload="auto" controls="yes">
+          <source src="audio/cash_register.wav" type="audio/wave">
+          <source src="audio/cash_register.mp3" type="audio/mpeg">
+        </audio></h1>
+        <h1>Rim-shot: <audio id="rimShot" preload="auto" controls="yes">
+          <source src="audio/rim-shot.wav" type="audio/wave">
+          <source src="audio/rim-shot.mp3" type="audio/mpeg">
+        </audio></h1>
+        <h1>Money Money: <audio id="money_money" preload="auto" controls="yes">
+          <source src="audio/money.wav" type="audio/wave">
+          <source src="audio/money.mp3" type="audio/mpeg">
+        </audio></h1>
+        <h1>Fail: <audio id="denied" preload="auto" controls="yes">
+          <source src="audio/denied.wav" type="audio/wave">
+          <source src="audio/denied.mp3" type="audio/mpeg">
+        </audio></h1>
+        <h1>Applause: <audio id="applause" preload="auto" controls="yes">
+          <source src="audio/applause.mp3" type="audio/mpeg">
+        </audio></h1>
+        <h1>Ten: <audio id="ten" preload="auto" controls="yes">
+          <source src="audio/ten_safe.wav" type="audio/wave">
+          <source src="audio/ten_safe.mp3" type="audio/mpeg">
+        </audio></h1>
+        <h1>Live Chat: <audio id="liveChat" preload="auto" controls="yes">
+            <source src="audio/live_chat.mp3" type="audio/mpeg">
+        </audio></h1>
+        <h1>Friday: <audio id="friday" preload="auto" controls="yes">
+            <source src="audio/friday.wav" type="audio/wave">
+            <source src="audio/friday.mp3" type="audio/mpeg">
+        </audio></h1>
+        <h1>Rooster: <audio id="rooster" preload="auto" controls="yes">
+          <source src="audio/rooster_crow.wav" type="audio/wave">
+          <source src="audio/rooster_crow.mp3" type="audio/mpeg">
+        </audio></h1>
+        <h1>Dixie Horn: <audio id="dixiehorn" preload="auto" controls="yes">
+            <source src="audio/dixie-horn.wav" type="audio/wave">
+            <source src="audio/dixie-horn.mp3" type="audio/mpeg">
+        </audio></h1>
+        <h1>Submarine Diving: <audio id="submarine" preload="auto" controls="yes">
+            <source src="audio/submarine-diving.wav" type="audio/wave">
+            <source src="audio/submarine-diving.mp3" type="audio/mpeg">
+        </audio></h1>
+        <h1>Baby Crying: <audio id="baby" preload="auto" controls="yes">
+            <source src="audio/baby-crying.wav" type="audio/wave">
+            <source src="audio/baby-crying.mp3" type="audio/mpeg">
+        </audio></h1>
+
+    </center>
+    <br>
+    <center>
+    <h3> Live Donations </h3>
+    <div>
+    <ul id="charges"></ul>
+    <div>
+    </center>
+</body>
+
+</html>

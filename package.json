@@ -1,0 +1,15 @@
+{
+  "name": "payments-webhook-node",
+  "version": "0.0.5",
+  "dependencies": {
+    "body-parser": "latest",
+    "express": "latest",
+    "express-basic-auth": "^1.2.0",
+    "node-basicauth": "latest",
+    "request": "latest",
+    "socket.io": "latest"
+  },
+  "engines": {
+    "node": "7.8.x"
+  }
+}
